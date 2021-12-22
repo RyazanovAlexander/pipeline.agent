@@ -13,3 +13,13 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+/src/Worker.PipelineAgent/obj
+/src/Worker.PipelineAgent/bin
+/src/Web.ApiGateway/obj
+/src/Web.ApiGateway/bin
+/src/Common.Models/obj
+/src/Common.Models/bin
+/.vs/pipeline-manager/DesignTimeBuild
+/.vs/pipeline-manager/v16
+/src/Pipeline.Agent/.tmp
+/src/Pipeline.Agent/tmp

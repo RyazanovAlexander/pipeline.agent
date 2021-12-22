@@ -1,0 +1,8 @@
+﻿{
+	"examples": {
+		"echo": {
+			"pipeline-agent-tag": "0.1.0",
+			"command-executor-tag": "0.1.0"
+		}
+	}
+}
