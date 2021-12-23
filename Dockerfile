@@ -4,10 +4,10 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["src/Pipeline.Agent/Pipeline.Agent.csproj", "src/Pipeline.Agent/"]
-RUN dotnet restore "src/Pipeline.Agent/Pipeline.Agent.csproj"
+COPY ["Pipeline.Agent.csproj", "."]
+RUN dotnet restore "./Pipeline.Agent.csproj"
 COPY . .
-WORKDIR "/src/src/Pipeline.Agent"
+WORKDIR "/src/."
 RUN dotnet build "Pipeline.Agent.csproj" -c Release -o /app/build
 
 FROM build AS publish

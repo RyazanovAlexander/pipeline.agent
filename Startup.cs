@@ -25,7 +25,7 @@ namespace Pipeline.Agent
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Worker.PipelineAgent", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Pipeline Agent", Version = "v1" });
             });
 
             services.AddApplicationServices();
@@ -36,7 +36,7 @@ namespace Pipeline.Agent
         {
             app.UseDeveloperExceptionPage();
             app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Worker.PipelineAgent v1"));
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Pipeline Agent v1"));
 
             app.UseRouting();
             app.UseAuthorization();
