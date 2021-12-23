@@ -3,7 +3,7 @@ kind: Config
 build:
   artifacts:
   - image: example-echo
-    context: ./Examples/echo/
+    context: ./src/Examples/echo/
     docker:
       dockerfile: Dockerfile
       buildArgs:
@@ -14,7 +14,7 @@ deploy:
     - name: echo
       namespace: example-echo
       createNamespace: true
-      chartPath: ./Examples/echo/chart
+      chartPath: ./src/Examples/echo/chart
       setValueTemplates:
         pipeline_agent:
           image:

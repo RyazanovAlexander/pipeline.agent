@@ -11,13 +11,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pipeline.Agent", "Pipeline.Agent.csproj", "{7D287270-3191-4F3C-A804-78F4453B48AB}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{4E6FE70B-793C-4BC0-8824-5286419C15C4}"
 	ProjectSection(SolutionItems) = preProject
 		tools\grpc_csharp_plugin.exe = tools\grpc_csharp_plugin.exe
 		tools\protoc.exe = tools\protoc.exe
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pipeline.Agent", "src\Pipeline.Agent.csproj", "{5A0FEBC9-4FF3-4DEB-91B3-CFAA7F76485B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +25,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7D287270-3191-4F3C-A804-78F4453B48AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7D287270-3191-4F3C-A804-78F4453B48AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7D287270-3191-4F3C-A804-78F4453B48AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7D287270-3191-4F3C-A804-78F4453B48AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A0FEBC9-4FF3-4DEB-91B3-CFAA7F76485B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A0FEBC9-4FF3-4DEB-91B3-CFAA7F76485B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A0FEBC9-4FF3-4DEB-91B3-CFAA7F76485B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A0FEBC9-4FF3-4DEB-91B3-CFAA7F76485B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

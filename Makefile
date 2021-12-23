@@ -20,9 +20,9 @@ init:
 
 .PHONY: proto
 proto:
-	@protoc -I ./Proto ./Proto/exec.proto \
-            --csharp_out=./Proto \
-            --grpc_out=./Proto \
+	@protoc -I .src/Proto .src/Proto/exec.proto \
+            --csharp_out=./src/Proto \
+            --grpc_out=./src/Proto \
             --plugin=protoc-gen-grpc=./tools/grpc_csharp_plugin.exe
 
 # ------------------------------------------------------------------------------
@@ -30,7 +30,7 @@ proto:
 
 .PHONY: container
 container:
-	@docker build -t $(DRNAME):$(DTAG) -f ./$(DFNAME) .
+	@docker build -t $(DRNAME):$(DTAG) -f ./src/$(DFNAME) .
 	@docker push $(DRNAME):$(DTAG)
 
 # ------------------------------------------------------------------------------
@@ -39,15 +39,15 @@ container:
 # make example name=echo
 .PHONY: example
 example:
-	rm -rf ./tmp
-	mkdir ./tmp
-	export PIPELINE_AGENT_VERSION=$(shell jq '.examples.echo."pipeline-agent-tag"' build-meta.jsonc); \
-	export COMMAND_EXECUTOR_VERSION=$(shell jq '.examples.echo."command-executor-tag"' build-meta.jsonc); \
-	envsubst < ./Examples/$(name)/skaffold.yaml > ./tmp/skaffold.gen
-	skaffold dev -f ./tmp/skaffold.gen --port-forward --no-prune=false --cache-artifacts=false
+	rm -rf ./src/tmp
+	mkdir ./src/tmp
+	export PIPELINE_AGENT_VERSION=$(shell jq '.examples.echo."pipeline-agent-tag"' src/build-meta.jsonc); \
+	export COMMAND_EXECUTOR_VERSION=$(shell jq '.examples.echo."command-executor-tag"' src/build-meta.jsonc); \
+	envsubst < ./src/Examples/$(name)/skaffold.yaml > ./src/tmp/skaffold.gen
+	skaffold dev -f ./src/tmp/skaffold.gen --port-forward --no-prune=false --cache-artifacts=false
 
 # make example-delete name=echo
 .PHONY: example-delete
 example-delete:
-	@skaffold delete -f ./Examples/$(name)/skaffold.yaml
-	rm -rf ./tmp
+	@skaffold delete -f ./src/Examples/$(name)/skaffold.yaml
+	rm -rf ./src/tmp
