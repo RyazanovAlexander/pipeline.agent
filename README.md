@@ -10,9 +10,9 @@ An example of a pipeline that performs text recognition in the specified images:
     {
       "executorName": "download",
       "commandLines": [
-        "wget -O /mnt/pipe/2rb88.png https://i.stack.imgur.com/2rb88.png",
-        "wget -O /mnt/pipe/text-photographed-eng.jpg https://www.imgonline.com.ua/examples/text-photographed-eng.jpg",
-        "wget -O /mnt/pipe/Cleartype-vs-Standard-Antialiasing.gif https://upload.wikimedia.org/wikipedia/commons/b/b8/Cleartype-vs-Standard-Antialiasing.gif"
+        "wget -O /mnt/pipe/pic1.png https://www.some-resource.com/pic1.png",
+        "wget -O /mnt/pipe/pic2.jpg https://www.some-resource.com/pic2.jpg",
+        "wget -O /mnt/pipe/pic3.gif https://www.some-resource.com/pic3.jpg"
       ]
     },
     {
