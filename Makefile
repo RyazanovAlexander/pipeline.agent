@@ -45,9 +45,9 @@ example:
 	export COMMAND_EXECUTOR_VERSION=$(shell jq '.examples.echo."command-executor-tag"' build-meta.jsonc); \
 	envsubst < ./Examples/$(name)/skaffold.yaml > ./tmp/skaffold.gen
 	skaffold dev -f ./tmp/skaffold.gen --port-forward --no-prune=false --cache-artifacts=false
-	rm -rf ./tmp
 
 # make example-delete name=echo
 .PHONY: example-delete
 example-delete:
 	@skaffold delete -f ./Examples/$(name)/skaffold.yaml
+	rm -rf ./tmp
