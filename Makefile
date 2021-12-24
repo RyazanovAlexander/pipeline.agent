@@ -8,6 +8,9 @@ DTAG   ?= $(LASTTAG)
 DFNAME ?= Dockerfile
 DRNAME ?= docker.io/aryazanov/pipeline-agent
 
+# example
+TMPFOLDER ?= ./src/tmp
+
 # ------------------------------------------------------------------------------
 #  init
 
@@ -39,15 +42,15 @@ container:
 # make example name=echo
 .PHONY: example
 example:
-	rm -rf ./src/tmp
-	mkdir ./src/tmp
+	rm -rf $(TMPFOLDER)
+	mkdir $(TMPFOLDER)
 	export PIPELINE_AGENT_VERSION=$(shell jq '.examples.echo."pipeline-agent-tag"' src/build-meta.jsonc); \
 	export COMMAND_EXECUTOR_VERSION=$(shell jq '.examples.echo."command-executor-tag"' src/build-meta.jsonc); \
-	envsubst < ./src/Examples/$(name)/skaffold.yaml > ./src/tmp/skaffold.gen
-	skaffold dev -f ./src/tmp/skaffold.gen --port-forward --no-prune=false --cache-artifacts=false
+	envsubst < ./src/Examples/$(name)/skaffold.yaml > $(TMPFOLDER)/skaffold.gen
+	skaffold dev -f $(TMPFOLDER)/skaffold.gen --port-forward --no-prune=false --cache-artifacts=false
 
 # make example-delete name=echo
 .PHONY: example-delete
 example-delete:
 	@skaffold delete -f ./src/Examples/$(name)/skaffold.yaml
-	rm -rf ./src/tmp
+	rm -rf $(TMPFOLDER)
